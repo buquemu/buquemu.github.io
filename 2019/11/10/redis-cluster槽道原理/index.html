@@ -6,20 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://buquemu.github.io">
-  <title>身高一米以上的小可爱才能点击进来 | Hexo</title>
+  <title>redis-cluster槽道原理 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="今天又是朝气满满的一天！加油 ！ 奥里给">
-<meta name="keywords" content="随笔">
+  <meta name="description" content="redis-cluster">
+<meta name="keywords" content="redis,槽道">
 <meta property="og:type" content="article">
-<meta property="og:title" content="身高一米以上的小可爱才能点击进来">
-<meta property="og:url" content="https:&#x2F;&#x2F;buquemu.github.io&#x2F;2019&#x2F;11&#x2F;09&#x2F;hello-world&#x2F;index.html">
+<meta property="og:title" content="redis-cluster槽道原理">
+<meta property="og:url" content="https:&#x2F;&#x2F;buquemu.github.io&#x2F;2019&#x2F;11&#x2F;10&#x2F;redis-cluster%E6%A7%BD%E9%81%93%E5%8E%9F%E7%90%86&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="今天又是朝气满满的一天！加油 ！ 奥里给">
+<meta property="og:description" content="redis-cluster">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https:&#x2F;&#x2F;ss1.bdstatic.com&#x2F;70cFvXSh_Q1YnxGkpoWK1HF6hhy&#x2F;it&#x2F;u=2194897853,1780350536&amp;fm=26&amp;gp=0.jpg">
-<meta property="og:updated_time" content="2019-11-10T07:10:40.554Z">
+<meta property="og:updated_time" content="2019-11-10T07:01:01.463Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;ss1.bdstatic.com&#x2F;70cFvXSh_Q1YnxGkpoWK1HF6hhy&#x2F;it&#x2F;u=2194897853,1780350536&amp;fm=26&amp;gp=0.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -161,28 +159,47 @@
           <div id="js-content" class="content-ll">
             
 
-<article id="post-hello-world" class="article article-type-post " itemscope itemprop="blogPost">
+<article id="post-redis-cluster槽道原理" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      身高一米以上的小可爱才能点击进来
+      redis-cluster槽道原理
     </h1>
   
 
         
-        <a href="/2019/11/09/hello-world/" class="archive-article-date">
-  	<time datetime="2019-11-09T03:20:35.782Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-09</time>
+        <a href="/2019/11/10/redis-cluster%E6%A7%BD%E9%81%93%E5%8E%9F%E7%90%86/" class="archive-article-date">
+  	<time datetime="2019-11-10T04:16:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-10</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>今天又是朝气满满的一天！加油 ！ 奥里给<br><img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2194897853,1780350536&fm=26&gp=0.jpg" alt="奥里给" title="别说话吻我"></p>
+        <h1 id="redis-cluster"><a href="#redis-cluster" class="headerlink" title="redis-cluster"></a>redis-cluster</h1><a id="more"></a>
+<p>是redis分布式高可用的集群</p>
+<h3 id="有如下四个特性"><a href="#有如下四个特性" class="headerlink" title="有如下四个特性"></a>有如下四个特性</h3><ol>
+<li>两两互联是redis-cluster的基础，是通过二进制传输协议优化通讯速度</li>
+<li>没有哨兵但依然有哨兵逻辑，集群中主节点负责监听，管理，投票</li>
+<li>分片计算逻辑，引入hash slot（槽道），使得客户端只需连接任意一个节点就可以操作集群</li>
+<li>分片计算在集群内部维护，客户端使用<strong>hash取模的散列计算</strong>,对应得到一个槽道区间;key值不变,得到的槽道号不变。</li>
+</ol>
+<h1 id="槽道使用效果"><a href="#槽道使用效果" class="headerlink" title="槽道使用效果"></a>槽道使用效果</h1><pre><code>客户端连接一个节点，发送命令，当节点对数据key值进行hash取模计算(CRC16%16384) 得到一个0-16383之间的数值--槽道号。当前节点判断所属权,如果所属,直接底层执行该名,如果不所属,将会根据两两互联获取的集群信息,给客户端返回redirect的要求,重定向到正确节点操作数据 。到了正确的节点,依然要执行槽道的使用逻辑判断所属权</code></pre><h1 id="槽道原理"><a href="#槽道原理" class="headerlink" title="槽道原理"></a>槽道原理</h1><h2 id="理解槽道原理需要解决两个问题"><a href="#理解槽道原理需要解决两个问题" class="headerlink" title="理解槽道原理需要解决两个问题"></a>理解槽道原理需要解决两个问题</h2><pre><code>* 每个节点获取数据key值后,计算槽道号,是如何判断所属权
+* 当节点判断所属权为false,,如何获取正确的节点信息</code></pre><p>1.节点启动时交互信息<br>    所有的群节点启动时,都会根据启动时加载的各种资源参数创建出针对当前节点形成信息对象 node。<br>    创建过程中，要先经过<strong>meet/握手</strong>，数据以包的形式在网络中传输，相互同步数据，两两互联。<br>2.槽道的结构<br>    * 节点如何判断管理权   –位序列<br>    * 节点如何存储槽道管理者信息    –索引数组</p>
+<h3 id="位序列"><a href="#位序列" class="headerlink" title="位序列"></a>位序列</h3><p>是一个2048个元素长的byte数组，二进制总长度16384（2048*8）十进制是2的16384次方!  每一位二进制的值对应一个槽道管理权限的结果，如果是1,表示槽道管理为true,如果是0表示槽道管理为false;可以通过对二进制的下标计算(位移计算)获取认为定义的从0-16383的下标号来表示每一个二进制的对应的槽道号    </p>
+<p>所以二进制的存在可以判断一个槽道号是否归当前节点管理,每个节点都保存了这样一个byte数组,会根据创建集群时分片的槽道关系,定义二进制的数值</p>
+<h3 id="索引数组"><a href="#索引数组" class="headerlink" title="索引数组"></a>索引数组</h3><p>集群中经过通信，形成一个完全统一，数据完全相同的数组数据。18384个元素，每个元素都包含一个<strong>引用的变量值</strong>，指向了内存中经过通信获取的一个node对象。</p>
+<p>整个过程可以理解为：<br>客户端连接了端口号为8000的redis，向它发送set name zhang<br>8000端口的这个节点，经过hash区模计算 name取模结果为5798<br>8000经过二进制判断所属权 拿到0==false<br>8000根据槽道号5798到数组中获取5798下标的变量对应的内存对象8001的node对象<br>解析ip port发送给客户端，重定向到8001<br>8001经过取模，判断所属权为true 直接处理</p>
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><pre><code>主从节点中二进制的状态和特点
+    主节点:有槽道管理权的主节点,位序列,每一位二进制只有一个节点为1,其他都是0
+    没有槽道管理权的主节点,二进制全为0,不存在。
+从节点:没有槽道管理权,但是要在备份空间记录主节点的二进制值
 
+为什么是16384个槽道?
+    byte数组元素2048个,占用内存空间,数据空间2KB;刚好是redis通信消息头的大小,每次通信过程传输二进制值时,只需要传一次.</code></pre>
       
 
       
@@ -226,7 +243,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">随笔</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color1">redis</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">槽道</a>
         		</li>
       		
 		</ul>
@@ -282,7 +303,7 @@
     <a class="close js-modal-close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://buquemu.github.ioub.io/2019/11/09/hello-world/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://buquemu.github.ioub.io/2019/11/10/redis-cluster%E6%A7%BD%E9%81%93%E5%8E%9F%E7%90%86/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -296,15 +317,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/11/09/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          我的第一篇博客文章
-        
-      </div>
-    </a>
   
+    <a href="/2019/11/09/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">我的第一篇博客文章</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -329,7 +346,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#redis-cluster"><span class="toc-number">1.</span> <span class="toc-text">redis-cluster</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#有如下四个特性"><span class="toc-number">1.0.1.</span> <span class="toc-text">有如下四个特性</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#槽道使用效果"><span class="toc-number">2.</span> <span class="toc-text">槽道使用效果</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#槽道原理"><span class="toc-number">3.</span> <span class="toc-text">槽道原理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#理解槽道原理需要解决两个问题"><span class="toc-number">3.1.</span> <span class="toc-text">理解槽道原理需要解决两个问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#位序列"><span class="toc-number">3.1.1.</span> <span class="toc-text">位序列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#索引数组"><span class="toc-number">3.1.2.</span> <span class="toc-text">索引数组</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#补充"><span class="toc-number">3.2.</span> <span class="toc-text">补充</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
