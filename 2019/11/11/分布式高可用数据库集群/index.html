@@ -6,17 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://buquemu.github.io">
-  <title>我的第一篇博客文章 | Hexo</title>
+  <title>分布式高可用数据库集群 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="管红盼你看我吊不吊">
+  <meta name="description" content="单机数据库的瓶颈:   无论如何去解决单机的访问效率问题，总会卡在物理瓶颈上，硬盘读写速度（现今200M&#x2F;s）">
+<meta name="keywords" content="数据库集群,主从复制">
 <meta property="og:type" content="article">
-<meta property="og:title" content="我的第一篇博客文章">
-<meta property="og:url" content="https:&#x2F;&#x2F;buquemu.github.io&#x2F;2019&#x2F;11&#x2F;09&#x2F;%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0&#x2F;index.html">
+<meta property="og:title" content="分布式高可用数据库集群">
+<meta property="og:url" content="https:&#x2F;&#x2F;buquemu.github.io&#x2F;2019&#x2F;11&#x2F;11&#x2F;%E5%88%86%E5%B8%83%E5%BC%8F%E9%AB%98%E5%8F%AF%E7%94%A8%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9B%86%E7%BE%A4&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="管红盼你看我吊不吊">
+<meta property="og:description" content="单机数据库的瓶颈:   无论如何去解决单机的访问效率问题，总会卡在物理瓶颈上，硬盘读写速度（现今200M&#x2F;s）">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-11-10T07:14:32.290Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;buquemu.github.io&#x2F;2019&#x2F;11&#x2F;11&#x2F;%E5%88%86%E5%B8%83%E5%BC%8F%E9%AB%98%E5%8F%AF%E7%94%A8%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9B%86%E7%BE%A4&#x2F;1.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;buquemu.github.io&#x2F;2019&#x2F;11&#x2F;11&#x2F;%E5%88%86%E5%B8%83%E5%BC%8F%E9%AB%98%E5%8F%AF%E7%94%A8%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9B%86%E7%BE%A4&#x2F;2.png">
+<meta property="og:updated_time" content="2019-11-11T15:14:42.335Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;buquemu.github.io&#x2F;2019&#x2F;11&#x2F;11&#x2F;%E5%88%86%E5%B8%83%E5%BC%8F%E9%AB%98%E5%8F%AF%E7%94%A8%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9B%86%E7%BE%A4&#x2F;1.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -158,32 +162,49 @@
           <div id="js-content" class="content-ll">
             
 
-<article id="post-我的第一篇博客文章" class="article article-type-post " itemscope itemprop="blogPost">
+<article id="post-分布式高可用数据库集群" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      我的第一篇博客文章
+      分布式高可用数据库集群
     </h1>
   
 
         
-        <a href="/2019/11/09/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" class="archive-article-date">
-  	<time datetime="2019-11-09T07:18:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-09</time>
+        <a href="/2019/11/11/%E5%88%86%E5%B8%83%E5%BC%8F%E9%AB%98%E5%8F%AF%E7%94%A8%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9B%86%E7%BE%A4/" class="archive-article-date">
+  	<time datetime="2019-11-11T13:50:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-11</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="管红盼你看我吊不吊"><a href="#管红盼你看我吊不吊" class="headerlink" title="管红盼你看我吊不吊"></a>管红盼你看我吊不吊</h1><a id="more"></a>
-<h2 id="是不是"><a href="#是不是" class="headerlink" title="是不是"></a>是不是</h2><h2 id="超级"><a href="#超级" class="headerlink" title="超级"></a>超级</h2><p>爆爆爆</p>
-<p>炸吊吊</p>
-<h2 id="给你个百度地址"><a href="#给你个百度地址" class="headerlink" title="给你个百度地址"></a>给你个百度地址</h2><p><a href="https://www.baidu.com/index.php?tn=monline_3_dg" target="_blank" rel="noopener">百度</a></p>
-<h3 id="略略略"><a href="#略略略" class="headerlink" title="略略略"></a>略略略</h3><hr>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=1372105120&auto=1&height=66"></iframe>
+        <h2 id="单机数据库的瓶颈"><a href="#单机数据库的瓶颈" class="headerlink" title="单机数据库的瓶颈:"></a>单机数据库的瓶颈:</h2><p>   无论如何去解决单机的访问效率问题，总会卡在物理瓶颈上，硬盘读写速度（现今200M/s）<br>   <a id="more"></a></p>
+<h1 id="分布式高可用数据库集群"><a href="#分布式高可用数据库集群" class="headerlink" title="分布式高可用数据库集群"></a>分布式高可用数据库集群</h1><h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><p><img src="/2019/11/11/%E5%88%86%E5%B8%83%E5%BC%8F%E9%AB%98%E5%8F%AF%E7%94%A8%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9B%86%E7%BE%A4/1.png" alt="结构"><br>一个高可用的分布式数据库集群,一定要使用客户端计算分片逻辑(mycat),也要引入高可用的主从复制(mysql实现主从结构)<br>    后面我会写一篇博客单独介绍mycat这个数据库中间件        </p>
+<h3 id="高可用分布式结构的概念"><a href="#高可用分布式结构的概念" class="headerlink" title="高可用分布式结构的概念"></a>高可用分布式结构的概念</h3><ol>
+<li>主从故障转移<br> 主节点宕机以后，从节点能携带完整数据顶替主节点，使得集群能正常对外提供数据库服务</li>
+<li>读写分离<br> 可以设置每个分片的主节点为写池（writeHost）,从节点为读池（readHost）<br> 这里要知道什么是数据分片：进行分片计算后形成的每一部分数据都是一片<br> （上图不同颜色的分别代表不同的分片）<br> 读写分离使得数据库集群的使用效率极高,非常考验中间件这种读写分离逻辑的计算能力(mycat读写分离计算高效)</li>
+<li>热备模式<br> 主从替换成为一种备份模式–热备,一个节点宕机后,有新的节点做备份顶替<ul>
+<li>单机热备：单向主从复制,备份能力只能一次性的使用一次<br>主节点在使用过程中宕机了，从节点顶替，这是往里写东西，当主节点恢复过来时，<br>它缺了大量宕机时的数据，所以不能再用了（要手动导入缺失数据）</li>
+<li>双向热备：双向主从复制,可以多次替换相互使用<br>宕机期间宕机的那个节点啥都干不了，但是只要节点不同时宕机，当恢复过来时，会会将数据同步过来</li>
+</ul>
+</li>
+</ol>
+<h2 id="数据库的主从复制"><a href="#数据库的主从复制" class="headerlink" title="数据库的主从复制"></a>数据库的主从复制</h2><p> 主从复制原理<br><img src="/2019/11/11/%E5%88%86%E5%B8%83%E5%BC%8F%E9%AB%98%E5%8F%AF%E7%94%A8%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9B%86%E7%BE%A4/2.png" alt title="主从复制原理"><br>    主节点只需开启一个二进制的bin-log日志文件<br>    从节点要开启2个线程，(I/O和SQL)生成一个中继日志relay-log</p>
+<ul>
+<li><p>解释一下图上数子1的地方：I/O线程连接到主节点，需要登陆提供了root账户和密码<br>，获取登陆权限，登录是为了监听主节点，将更新的数据抓取回来</p>
+</li>
+<li><p>解释一下图上数子2的地方：监听是读数据，抓取要写fetch，将抓取的数据放入relay-log<br>中继日志 这个中继可以理解为中间继承过度的意思。<br>启动另一个线程也做监听抓取的工作，叫做SQL线程.监听本地中继日志。<br>判断更新的逻辑：只抓取postion(指针值)更新的那一段数据</p>
+<hr>
+<h3 id="master主节点"><a href="#master主节点" class="headerlink" title="master主节点:"></a>master主节点:</h3><p>  开启一个二进制的bin-log日志文件，记录主节点所得写操作命令，通过postion指针值<br>  指向最终的结果位置，只要有写操作，指针位置将发生变动（整数变动）及指针值发生变动</p>
+<hr>
+</li>
+</ul>
+<h3 id="slave从节点"><a href="#slave从节点" class="headerlink" title="slave从节点:"></a>slave从节点:</h3><p>   I/O: 登录主节点监听读取日志文件更新的数据,通过判断上一一次更新时本地记录的position值确定是否有更新内容,和更新范围.<br>   relay-log: 从节点本地中继日志,记录了I/O通过更新判断抓取过来的所有主节点<br>   的写操作日志命令<br>    SQL:监听本地中继日志,通过判断更新,启动内部client执行更新的主节点sql,最终实现从节点和主节点的数据同步</p>
+
       
 
       
@@ -222,6 +243,21 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color1">数据库集群</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">主从复制</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -272,7 +308,7 @@
     <a class="close js-modal-close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://buquemu.github.ioub.io/2019/11/09/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://buquemu.github.ioub.io/2019/11/11/%E5%88%86%E5%B8%83%E5%BC%8F%E9%AB%98%E5%8F%AF%E7%94%A8%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9B%86%E7%BE%A4/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -286,18 +322,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/11/10/redis-cluster%E6%A7%BD%E9%81%93%E5%8E%9F%E7%90%86/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          redis-cluster槽道原理
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/11/09/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">身高一米以上的小可爱才能点击进来</div>
+    <a href="/2019/11/10/redis-cluster%E6%A7%BD%E9%81%93%E5%8E%9F%E7%90%86/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">redis-cluster槽道原理</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -324,7 +351,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#管红盼你看我吊不吊"><span class="toc-number">1.</span> <span class="toc-text">管红盼你看我吊不吊</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#是不是"><span class="toc-number">1.1.</span> <span class="toc-text">是不是</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#超级"><span class="toc-number">1.2.</span> <span class="toc-text">超级</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#给你个百度地址"><span class="toc-number">1.3.</span> <span class="toc-text">给你个百度地址</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#略略略"><span class="toc-number">1.3.1.</span> <span class="toc-text">略略略</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#单机数据库的瓶颈"><span class="toc-number">1.</span> <span class="toc-text">单机数据库的瓶颈:</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#分布式高可用数据库集群"><span class="toc-number"></span> <span class="toc-text">分布式高可用数据库集群</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#结构"><span class="toc-number">1.</span> <span class="toc-text">结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#高可用分布式结构的概念"><span class="toc-number">1.1.</span> <span class="toc-text">高可用分布式结构的概念</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库的主从复制"><span class="toc-number">2.</span> <span class="toc-text">数据库的主从复制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#master主节点"><span class="toc-number">2.1.</span> <span class="toc-text">master主节点:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#slave从节点"><span class="toc-number">2.2.</span> <span class="toc-text">slave从节点:</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
