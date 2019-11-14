@@ -18,7 +18,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https:&#x2F;&#x2F;buquemu.github.io&#x2F;2019&#x2F;11&#x2F;13&#x2F;SSM&#x2F;1.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;buquemu.github.io&#x2F;2019&#x2F;11&#x2F;13&#x2F;SSM&#x2F;2.png">
-<meta property="og:updated_time" content="2019-11-14T09:10:04.794Z">
+<meta property="og:updated_time" content="2019-11-14T09:47:16.844Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;buquemu.github.io&#x2F;2019&#x2F;11&#x2F;13&#x2F;SSM&#x2F;1.png">
   
@@ -200,7 +200,7 @@
 
 <p>明白了这个结构我们就可以继续向下学习<br><strong>新三大框架</strong><br>SSM包括SpringMVC，Spring,MyBatis<br>所谓的框架其实就是程序的架子，在这个程序的架子中，搭建起程序的基本的骨架，针对程序的通用问题给出了便捷的解决方案，可以使开发人员 基于框架快速开发具体的应用程序。</p>
 <p>SSM框架最低要求是会用，会用的基础上在掌握他的原理！</p>
-<h1 id="一-Spring"><a href="#一-Spring" class="headerlink" title="一. Spring"></a>一. Spring</h1><p>spring是Service（业务层）层框架，主要技术是IOC和AOP<br>IOC(DI) - 控制反转(依赖注入)   实现了<strong>低内聚</strong><br>AOP - 面向切面编程            实现了<strong>高耦合</strong></p>
+<h1 id="一-Spring"><a href="#一-Spring" class="headerlink" title="一. Spring"></a>一. Spring</h1><p>spring是Service（业务层）层框架，主要技术是IOC和AOP<br>IOC(DI) - 控制反转(依赖注入)   实现了<strong>高内聚</strong><br>AOP - 面向切面编程            实现了<strong>低耦合</strong></p>
 <p> 为啥要用IOC？软件层次更加清晰，代码可以复用 ，修改一层不影响其它层 是 非常优良的解耦机制 (不传特有的对象，避免人为造成的耦合)</p>
 <h2 id="IOC-DI-控制反转-依赖注入"><a href="#IOC-DI-控制反转-依赖注入" class="headerlink" title="IOC(DI)- 控制反转(依赖注入)"></a>IOC(DI)- 控制反转(依赖注入)</h2><p>所谓的IOC称之为控制反转，简单来说就是将对象的创建的权利及对象的生命周期的管理过程交由Spring框架来处理，从此在开发过程中不再需要关注对象的创建和生命周期的管理，而是在需要时由Spring框架提供，这个由spring框架管理对象创建和生命周期的机制称之为控制反转。(就是以后不用new对象了，难受不铁子，对象创建和销毁都是spring帮你管理的)。创建对象的过程中Spring可以依据配置对对象的属性进行设置，这个过称之为依赖注入,也即DI。</p>
 <hr>
