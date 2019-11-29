@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="https://buquemu.github.io">
   <title>redis-cluster槽道原理 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="redis-cluster">
+  <meta name="description" content="redis-cluster是redis分布式高可用的集群 有如下四个特性 两两互联是redis-cluster的基础，是通过二进制传输协议优化通讯速度 没有哨兵但依然有哨兵逻辑，集群中主节点负责监听，管理，投票 分片计算逻辑，引入hash slot（槽道），使得客户端只需连接任意一个节点就可以操作集群 分片计算在集群内部维护，客户端使用hash取模的散列计算,对应得到一个槽道区间;key值不变,得">
 <meta name="keywords" content="redis,槽道">
 <meta property="og:type" content="article">
 <meta property="og:title" content="redis-cluster槽道原理">
 <meta property="og:url" content="https:&#x2F;&#x2F;buquemu.github.io&#x2F;2019&#x2F;11&#x2F;10&#x2F;redis-cluster%E6%A7%BD%E9%81%93%E5%8E%9F%E7%90%86&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="redis-cluster">
+<meta property="og:description" content="redis-cluster是redis分布式高可用的集群 有如下四个特性 两两互联是redis-cluster的基础，是通过二进制传输协议优化通讯速度 没有哨兵但依然有哨兵逻辑，集群中主节点负责监听，管理，投票 分片计算逻辑，引入hash slot（槽道），使得客户端只需连接任意一个节点就可以操作集群 分片计算在集群内部维护，客户端使用hash取模的散列计算,对应得到一个槽道区间;key值不变,得">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-11-12T14:58:32.353Z">
+<meta property="og:updated_time" content="2019-11-18T12:08:10.620Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -188,15 +188,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="redis-cluster"><a href="#redis-cluster" class="headerlink" title="redis-cluster"></a>redis-cluster</h1><a id="more"></a>
-<p>是redis分布式高可用的集群</p>
+        <h1 id="redis-cluster"><a href="#redis-cluster" class="headerlink" title="redis-cluster"></a>redis-cluster</h1><p>是redis分布式高可用的集群</p>
 <h3 id="有如下四个特性"><a href="#有如下四个特性" class="headerlink" title="有如下四个特性"></a>有如下四个特性</h3><ol>
 <li>两两互联是redis-cluster的基础，是通过二进制传输协议优化通讯速度</li>
 <li>没有哨兵但依然有哨兵逻辑，集群中主节点负责监听，管理，投票</li>
 <li>分片计算逻辑，引入hash slot（槽道），使得客户端只需连接任意一个节点就可以操作集群</li>
-<li>分片计算在集群内部维护，客户端使用<strong>hash取模的散列计算</strong>,对应得到一个槽道区间;key值不变,得到的槽道号不变。</li>
+<li>分片计算在集群内部维护，客户端使用<strong>hash取模的散列计算</strong>,对应得到一个槽道区间;key值不变,得到的槽道号不变。<a id="more"></a>
+<h1 id="槽道使用效果"><a href="#槽道使用效果" class="headerlink" title="槽道使用效果"></a>槽道使用效果</h1> 客户端连接一个节点，发送命令，当节点对数据key值进行hash取模计算(CRC16%16384) 得到一个0-16383之间的数值–槽道号。当前节点判断所属权,如果所属,直接底层执行该名,如果不所属,将会根据两两互联获取的集群信息,给客户端返回redirect的要求,重定向到正确节点操作数据 。到了正确的节点,依然要执行槽道的使用逻辑判断所属权</li>
 </ol>
-<h1 id="槽道使用效果"><a href="#槽道使用效果" class="headerlink" title="槽道使用效果"></a>槽道使用效果</h1><pre><code>客户端连接一个节点，发送命令，当节点对数据key值进行hash取模计算(CRC16%16384) 得到一个0-16383之间的数值--槽道号。当前节点判断所属权,如果所属,直接底层执行该名,如果不所属,将会根据两两互联获取的集群信息,给客户端返回redirect的要求,重定向到正确节点操作数据 。到了正确的节点,依然要执行槽道的使用逻辑判断所属权</code></pre><h1 id="槽道原理"><a href="#槽道原理" class="headerlink" title="槽道原理"></a>槽道原理</h1><h2 id="理解槽道原理需要解决两个问题"><a href="#理解槽道原理需要解决两个问题" class="headerlink" title="理解槽道原理需要解决两个问题"></a>理解槽道原理需要解决两个问题</h2><pre><code>* 每个节点获取数据key值后,计算槽道号,是如何判断所属权
+<h1 id="槽道原理"><a href="#槽道原理" class="headerlink" title="槽道原理"></a>槽道原理</h1><h2 id="理解槽道原理需要解决两个问题"><a href="#理解槽道原理需要解决两个问题" class="headerlink" title="理解槽道原理需要解决两个问题"></a>理解槽道原理需要解决两个问题</h2><pre><code>* 每个节点获取数据key值后,计算槽道号,是如何判断所属权
 * 当节点判断所属权为false,,如何获取正确的节点信息</code></pre><p>1.节点启动时交互信息<br>    所有的群节点启动时,都会根据启动时加载的各种资源参数创建出针对当前节点形成信息对象 node。<br>    创建过程中，要先经过<strong>meet/握手</strong>，数据以包的形式在网络中传输，相互同步数据，两两互联。<br>2.槽道的结构<br>    * 节点如何判断管理权   –位序列<br>    * 节点如何存储槽道管理者信息    –索引数组</p>
 <h3 id="位序列"><a href="#位序列" class="headerlink" title="位序列"></a>位序列</h3><p>是一个2048个元素长的byte数组，二进制总长度16384（2048*8）十进制是2的16384次方!  每一位二进制的值对应一个槽道管理权限的结果，如果是1,表示槽道管理为true,如果是0表示槽道管理为false;可以通过对二进制的下标计算(位移计算)获取认为定义的从0-16383的下标号来表示每一个二进制的对应的槽道号    </p>
 <p>所以二进制的存在可以判断一个槽道号是否归当前节点管理,每个节点都保存了这样一个byte数组,会根据创建集群时分片的槽道关系,定义二进制的数值</p>
@@ -527,7 +527,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">阿里云主机</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">rabbitmq</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -544,6 +548,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">主从复制</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">时间复杂度</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">随笔</a>
               </li>
             
             <div class="clearfix"></div>

@@ -151,14 +151,14 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-SSM" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-时间复杂度" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/13/SSM/">SSM</a>
+      <a class="article-title" href="/2019/11/29/%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/">时间复杂度</a>
     </h1>
   
 
@@ -168,7 +168,325 @@
 <!--显示阅读次数完毕-->
 
         
-        <a href="/2019/11/13/SSM/" class="archive-article-date">
+        <a href="/2019/11/29/%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/" class="archive-article-date">
+  	<time datetime="2019-11-29T15:12:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>首先要知道的是 ，时间复杂度并不是指代码执行时间</p>
+<ol>
+<li><p>将某一段逻辑的执行时间看作是单位1，执行这个单位1的<strong>次数</strong> （执行多少次）<br>理论上来说次数越少，执行效率越高<br>同时这个次数还由另一个因素决定</p>
+</li>
+<li><p>计算时间复杂度要考虑<strong>元素个数</strong>的变化<br>元素个数不断增多的前提下，计算次数是否会发生变化<br>比如说：增加一次需要多几次变化 增多两次需要多几次变化 这个才是我们所谓的空间复杂度<br>元素个数不断增多，计算次数就不断发生变化</p>
+</li>
+<li><p>次数和元素个数的（关系）表达式也就是时间复杂度 </p>
+<pre><code>元素个数多了，次数也变了 元素次数多，次数是怎么变的 中间会形成一个方程式这个方程式就是时间复杂度</code></pre></li>
+</ol>
+<p>比如for循环遍历一个数组 syso一段话 数组10个元素 他就打印10次 100个元素他就循环打印100此<br>也是就是说元素个数为n它就执行n此  那他的时间复杂度就是 O(n)</p>
+<p>需要注意，在时间复杂度中，<strong>系数</strong>(斜率，整体的变化趋势不会发生影响)<br>n 2n 3n 都是O(n);<br>除非大到影响变化趋势，不然一般不考虑系数。<br>如果表达式中出现多项式，(比如冒泡循环)一般考虑的是对整个多项式影响最大的一项</p>
+<p>等差公式（头+尾<em>项数 ）/2<br>外层循环控制论述    内层循环控制比较次数<br>1                    n-1<br>2                    n-2<br>3                    n-3<br>总次数=(n-1)+(n-2)+(n-3)….+1<br>等差： （n-1+1）</em>(n-1)/2 = (n^2-n)/2<br>除非大到影响变化趋势，不然一般不考虑系数。<br>n^2-n<br>如果表达式中出现多项式，(比如冒泡循环)一般考虑的是对整个多项式影响最大的一项<br>n^2<br>冒泡时间复杂度就是O（n^2）选择排序和他一模一样</p>
+<p>红黑树（二分查找的空间结构）时间复杂度根折半查找一样的<br>总元素是n个<br>查询次数     元素个数<br>1            n<em>1/2<br>2            n<em>1/2</em>1/2<br>3            n<em>1/2</em>1/2*1/2<br>…<br>第x次        只剩一个元素 1 = n</em>(1/2)^x<br>n/(2^x) = 1<br>2^x = n<br>x = logn<br>时间复杂度为O(logn)z</p>
+
+      
+      <!-- 增加版权声明 -->
+<!- 百度自动推送方式提交 -->
+
+  <script>
+  (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      }
+      else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+  })();
+  </script>
+
+<!- 百度自动推送方式提交结束 -->
+  
+
+  <div class="declare" hidden="hidden"></div>
+
+
+<!-- 增加版权声明结束 -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color1">时间复杂度</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/11/29/%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-rabbitmq阿里云安装时遇到的问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/28/rabbitmq%E9%98%BF%E9%87%8C%E4%BA%91%E5%AE%89%E8%A3%85%E6%97%B6%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/">rabbitmq阿里云安装时遇到的问题</a>
+    </h1>
+  
+
+        
+        <!--显示阅读次数-->
+
+<!--显示阅读次数完毕-->
+
+        
+        <a href="/2019/11/28/rabbitmq%E9%98%BF%E9%87%8C%E4%BA%91%E5%AE%89%E8%A3%85%E6%97%B6%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/" class="archive-article-date">
+  	<time datetime="2019-11-28T15:53:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>今天晚上在服务器安装服rabbitmq弄了一晚上可算把问题解决了<br>分享一下遇到的坑<br>阿里云 服务器对外访问端口 默认的只有三个 80 443 22 </p>
+        
+          <a class="article-more-a" href="/2019/11/28/rabbitmq%E9%98%BF%E9%87%8C%E4%BA%91%E5%AE%89%E8%A3%85%E6%97%B6%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/#more">more >></a>
+        
+      
+      <!-- 增加版权声明 -->
+<!- 百度自动推送方式提交 -->
+
+  <script>
+  (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      }
+      else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+  })();
+  </script>
+
+<!- 百度自动推送方式提交结束 -->
+  
+
+  <div class="declare" hidden="hidden"></div>
+
+
+<!-- 增加版权声明结束 -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color1">阿里云主机</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">rabbitmq</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/11/28/rabbitmq%E9%98%BF%E9%87%8C%E4%BA%91%E5%AE%89%E8%A3%85%E6%97%B6%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-SpringMVC" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/18/SpringMVC/">SpringMVC</a>
+    </h1>
+  
+
+        
+        <!--显示阅读次数-->
+
+<!--显示阅读次数完毕-->
+
+        
+        <a href="/2019/11/18/SpringMVC/" class="archive-article-date">
+  	<time datetime="2019-11-18T12:15:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+      <!-- 增加版权声明 -->
+<!- 百度自动推送方式提交 -->
+
+  <script>
+  (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      }
+      else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+  })();
+  </script>
+
+<!- 百度自动推送方式提交结束 -->
+  
+
+  <div class="declare" hidden="hidden"></div>
+
+
+<!-- 增加版权声明结束 -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/11/18/SpringMVC/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Spring" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/13/Spring/">SSM</a>
+    </h1>
+  
+
+        
+        <!--显示阅读次数-->
+
+<!--显示阅读次数完毕-->
+
+        
+        <a href="/2019/11/13/Spring/" class="archive-article-date">
   	<time datetime="2019-11-13T11:35:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-13</time>
 </a>
         
@@ -180,9 +498,9 @@
 <ol>
 <li>首先介绍一下MVC开发模式：<br>在MVC开发模式中认为，<strong>任何一个程序</strong>都可以由三部分组成，负责接受请求的控制器（Controller）,负责封装数据提供方法的模块（Model），和负责数据展示的视图（View）。分为这三个模块后，每个模块各司其职，只负责当前模块的工作，能够最大程度的降低代码耦合性。</li>
 </ol>
-<p><strong>注意</strong>：MVC是一种思想，一种开发模式，并不是java特有的思想和开发模式。任何一门语言，一个程序都<br>可以使用MVC这个模式进行开发。<br>2. JAVAEE经典三层架构：<br>由servlet接收请求，再讲请求交给service，service负责处理逻辑，并且掉用Dao层，Dao层负责访问数据库。当查询到到结果后，结果数据由 Dao层返回到Service层，在service层选择是否利用javabean（可以理解成具有属性的类，不准确！为了方便理解）封装数据，再将处理后的数据由Service层发送到Servlet,Servlet再负责分发结果数据到对应的JSP页面，JSP页面展示数据。<br><img src="/2019/11/13/SSM/1.png" alt="javaee经典三层架构"></p>
+<p><strong>注意</strong>：MVC是一种思想，一种开发模式，并不是java特有的思想和开发模式。任何一门语言，一个程序都<br>可以使用MVC这个模式进行开发。<br>2. JAVAEE经典三层架构：<br>由servlet接收请求，再讲请求交给service，service负责处理逻辑，并且掉用Dao层，Dao层负责访问数据库。当查询到到结果后，结果数据由 Dao层返回到Service层，在service层选择是否利用javabean（可以理解成具有属性的类，不准确！为了方便理解）封装数据，再将处理后的数据由Service层发送到Servlet,Servlet再负责分发结果数据到对应的JSP页面，JSP页面展示数据。<br><img src="/2019/11/13/Spring/1.png" alt="javaee经典三层架构"></p>
         
-          <a class="article-more-a" href="/2019/11/13/SSM/#more">more >></a>
+          <a class="article-more-a" href="/2019/11/13/Spring/#more">more >></a>
         
       
       <!-- 增加版权声明 -->
@@ -235,7 +553,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/13/SSM/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/11/13/Spring/">展开全文 >></a>
         </p>
       
 
@@ -400,7 +718,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="redis-cluster"><a href="#redis-cluster" class="headerlink" title="redis-cluster"></a>redis-cluster</h1>
+        <h1 id="redis-cluster"><a href="#redis-cluster" class="headerlink" title="redis-cluster"></a>redis-cluster</h1><p>是redis分布式高可用的集群</p>
+<h3 id="有如下四个特性"><a href="#有如下四个特性" class="headerlink" title="有如下四个特性"></a>有如下四个特性</h3><ol>
+<li>两两互联是redis-cluster的基础，是通过二进制传输协议优化通讯速度</li>
+<li>没有哨兵但依然有哨兵逻辑，集群中主节点负责监听，管理，投票</li>
+<li>分片计算逻辑，引入hash slot（槽道），使得客户端只需连接任意一个节点就可以操作集群</li>
+<li>分片计算在集群内部维护，客户端使用<strong>hash取模的散列计算</strong>,对应得到一个槽道区间;key值不变,得到的槽道号不变。</li></ol>
         
           <a class="article-more-a" href="/2019/11/10/redis-cluster%E6%A7%BD%E9%81%93%E5%8E%9F%E7%90%86/#more">more >></a>
         
@@ -789,7 +1112,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">阿里云主机</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">rabbitmq</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -806,6 +1133,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">主从复制</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">时间复杂度</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">随笔</a>
               </li>
             
             <div class="clearfix"></div>
