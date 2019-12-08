@@ -158,7 +158,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/29/%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/">时间复杂度</a>
+      <a class="article-title" href="/2019/11/29/%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/">100%能看懂的时间复杂度总结</a>
     </h1>
   
 
@@ -176,20 +176,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>首先要知道的是 ，时间复杂度并不是指代码执行时间</p>
-<ol>
-<li><p>将某一段逻辑的执行时间看作是单位1，执行这个单位1的<strong>次数</strong> （执行多少次）<br>理论上来说次数越少，执行效率越高<br>同时这个次数还由另一个因素决定</p>
-</li>
-<li><p>计算时间复杂度要考虑<strong>元素个数</strong>的变化<br>元素个数不断增多的前提下，计算次数是否会发生变化<br>比如说：增加一次需要多几次变化 增多两次需要多几次变化 这个才是我们所谓的空间复杂度<br>元素个数不断增多，计算次数就不断发生变化</p>
-</li>
-<li><p>次数和元素个数的（关系）表达式也就是时间复杂度 </p>
-<pre><code>元素个数多了，次数也变了 元素次数多，次数是怎么变的 中间会形成一个方程式这个方程式就是时间复杂度</code></pre></li>
-</ol>
-<p>比如for循环遍历一个数组 syso一段话 数组10个元素 他就打印10次 100个元素他就循环打印100此<br>也是就是说元素个数为n它就执行n此  那他的时间复杂度就是 O(n)</p>
-<p>需要注意，在时间复杂度中，<strong>系数</strong>(斜率，整体的变化趋势不会发生影响)<br>n 2n 3n 都是O(n);<br>除非大到影响变化趋势，不然一般不考虑系数。<br>如果表达式中出现多项式，(比如冒泡循环)一般考虑的是对整个多项式影响最大的一项</p>
-<p>等差公式（头+尾<em>项数 ）/2<br>外层循环控制论述    内层循环控制比较次数<br>1                    n-1<br>2                    n-2<br>3                    n-3<br>总次数=(n-1)+(n-2)+(n-3)….+1<br>等差： （n-1+1）</em>(n-1)/2 = (n^2-n)/2<br>除非大到影响变化趋势，不然一般不考虑系数。<br>n^2-n<br>如果表达式中出现多项式，(比如冒泡循环)一般考虑的是对整个多项式影响最大的一项<br>n^2<br>冒泡时间复杂度就是O（n^2）选择排序和他一模一样</p>
-<p>红黑树（二分查找的空间结构）时间复杂度根折半查找一样的<br>总元素是n个<br>查询次数     元素个数<br>1            n<em>1/2<br>2            n<em>1/2</em>1/2<br>3            n<em>1/2</em>1/2*1/2<br>…<br>第x次        只剩一个元素 1 = n</em>(1/2)^x<br>n/(2^x) = 1<br>2^x = n<br>x = logn<br>时间复杂度为O(logn)z</p>
-
+        <p>首先要知道的是 ，时间复杂度并不是指代码执行时间<br>1.将某一段逻辑的执行时间看作是单位1，执行这个单位1的<strong>次数</strong> （执行多少次）<br>理论上来说次数越少，执行效率越高<br>同时这个次数还由另一个因素决定<br>2.计算时间复杂度要考虑<strong>元素个数</strong>的变化<br>元素个数不断增多的前提下，计算次数是否会发生变化<br>比如说：增加一次需要多几次变化 增多两次需要多几次变化 这个才是我们所谓的空间复杂度<br>元素个数不断增多，计算次数就不断发生变化<br>3.<strong>次数和元素个数的（关系）表达式也就是时间复杂度</strong></p>
+        
+          <a class="article-more-a" href="/2019/11/29/%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/#more">more >></a>
+        
       
       <!-- 增加版权声明 -->
 <!- 百度自动推送方式提交 -->
@@ -1112,19 +1102,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">阿里云主机</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">rabbitmq</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">槽道</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1136,11 +1122,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">时间复杂度</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">槽道</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">时间复杂度</a>
               </li>
             
             <div class="clearfix"></div>
