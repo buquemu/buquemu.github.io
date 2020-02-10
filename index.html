@@ -151,6 +151,119 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-session-getAttribute-值获取为null" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/10/session-getAttribute-%E5%80%BC%E8%8E%B7%E5%8F%96%E4%B8%BAnull/">session.getAttribute()值获取为null</a>
+    </h1>
+  
+
+        
+        <!--显示阅读次数-->
+
+<!--显示阅读次数完毕-->
+
+        
+        <a href="/2020/02/10/session-getAttribute-%E5%80%BC%E8%8E%B7%E5%8F%96%E4%B8%BAnull/" class="archive-article-date">
+  	<time datetime="2020-02-10T10:00:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>还没有写前端页面，所以昨天用到了post man工具来向后端发送json格式的请求<br>这个问题卡了我一下午 终于解决了！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">request.getSession().getAttribute(&quot;githubuser&quot;); 为空一直取不到值</span><br></pre></td></tr></table></figure>
+<p><img src="/2020/02/10/session-getAttribute-%E5%80%BC%E8%8E%B7%E5%8F%96%E4%B8%BAnull/1.jpg" alt="3"><br>前面设置了，所以不存在Session没有set的情况<br><img src="/2020/02/10/session-getAttribute-%E5%80%BC%E8%8E%B7%E5%8F%96%E4%B8%BAnull/2.png" alt="3"><br>我另一个控制层中也有这个方法，这个方法获取session就正常<br><img src="/2020/02/10/session-getAttribute-%E5%80%BC%E8%8E%B7%E5%8F%96%E4%B8%BAnull/3.png" alt="3"></p>
+<h1 id="问题原因："><a href="#问题原因：" class="headerlink" title="问题原因："></a>问题原因：</h1><p>postman 是一个软件，那么他不能和浏览器共享 cookies<br>session就没办法同步</p>
+        
+          <a class="article-more-a" href="/2020/02/10/session-getAttribute-%E5%80%BC%E8%8E%B7%E5%8F%96%E4%B8%BAnull/#more">more >></a>
+        
+      
+      <!-- 增加版权声明 -->
+<!- 百度自动推送方式提交 -->
+
+  <script>
+  (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      }
+      else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+  })();
+  </script>
+
+<!- 百度自动推送方式提交结束 -->
+  
+
+  <div class="declare" hidden="hidden"></div>
+
+
+<!-- 增加版权声明结束 -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">session</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">post man</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/02/10/session-getAttribute-%E5%80%BC%E8%8E%B7%E5%8F%96%E4%B8%BAnull/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-idea破解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1112,120 +1225,6 @@
 
 
   
-    <article id="post-Spring" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/13/Spring/">SSM</a>
-    </h1>
-  
-
-        
-        <!--显示阅读次数-->
-
-<!--显示阅读次数完毕-->
-
-        
-        <a href="/2019/11/13/Spring/" class="archive-article-date">
-  	<time datetime="2019-11-13T11:35:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>满满的干货，小超超！好好看好好学</p>
-<ol>
-<li>首先介绍一下MVC开发模式：<br>在MVC开发模式中认为，<strong>任何一个程序</strong>都可以由三部分组成，负责接受请求的控制器（Controller）,负责封装数据提供方法的模块（Model），和负责数据展示的视图（View）。分为这三个模块后，每个模块各司其职，只负责当前模块的工作，能够最大程度的降低代码耦合性。</li>
-</ol>
-<p><strong>注意</strong>：MVC是一种思想，一种开发模式，并不是java特有的思想和开发模式。任何一门语言，一个程序都<br>可以使用MVC这个模式进行开发。<br>2. JAVAEE经典三层架构：<br>由servlet接收请求，再讲请求交给service，service负责处理逻辑，并且掉用Dao层，Dao层负责访问数据库。当查询到到结果后，结果数据由 Dao层返回到Service层，在service层选择是否利用javabean（可以理解成具有属性的类，不准确！为了方便理解）封装数据，再将处理后的数据由Service层发送到Servlet,Servlet再负责分发结果数据到对应的JSP页面，JSP页面展示数据。<br><img src="/2019/11/13/Spring/1.png" alt="javaee经典三层架构"></p>
-        
-          <a class="article-more-a" href="/2019/11/13/Spring/#more">more >></a>
-        
-      
-      <!-- 增加版权声明 -->
-<!- 百度自动推送方式提交 -->
-
-  <script>
-  (function(){
-      var bp = document.createElement('script');
-      var curProtocol = window.location.protocol.split(':')[0];
-      if (curProtocol === 'https') {
-          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-      }
-      else {
-          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-      }
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(bp, s);
-  })();
-  </script>
-
-<!- 百度自动推送方式提交结束 -->
-  
-
-  <div class="declare" hidden="hidden"></div>
-
-
-<!-- 增加版权声明结束 -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">Spring</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">SSM</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/13/Spring/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1327,15 +1326,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">github登录</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">generator</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">github登录</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1363,11 +1362,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">数据库集群</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">session</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">主从复制</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">post man</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1379,11 +1378,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">Spring</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">数据库集群</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">SSM</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">主从复制</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1392,6 +1391,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">idea热部署</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">Spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">SSM</a>
               </li>
              
               <li class="article-tag-list-item">

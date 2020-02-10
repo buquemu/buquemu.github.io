@@ -6,14 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://buquemu.github.io">
-  <title>Tag: 随笔 | Hexo</title>
+  <title>session.getAttribute()值获取为null | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="https:&#x2F;&#x2F;buquemu.github.io&#x2F;tags&#x2F;%E9%9A%8F%E7%AC%94&#x2F;index.html">
+  <meta name="description" content="还没有写前端页面，所以昨天用到了post man工具来向后端发送json格式的请求这个问题卡了我一下午 终于解决了！ 1request.getSession().getAttribute(&amp;quot;githubuser&amp;quot;); 为空一直取不到值 前面设置了，所以不存在Session没有set的情况我另一个控制层中也有这个方法，这个方法获取session就正常 问题原因：postman 是">
+<meta name="keywords" content="session,post man">
+<meta property="og:type" content="article">
+<meta property="og:title" content="session.getAttribute()值获取为null">
+<meta property="og:url" content="https:&#x2F;&#x2F;buquemu.github.io&#x2F;2020&#x2F;02&#x2F;10&#x2F;session-getAttribute-%E5%80%BC%E8%8E%B7%E5%8F%96%E4%B8%BAnull&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="还没有写前端页面，所以昨天用到了post man工具来向后端发送json格式的请求这个问题卡了我一下午 终于解决了！ 1request.getSession().getAttribute(&amp;quot;githubuser&amp;quot;); 为空一直取不到值 前面设置了，所以不存在Session没有set的情况我另一个控制层中也有这个方法，这个方法获取session就正常 问题原因：postman 是">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https:&#x2F;&#x2F;buquemu.github.io&#x2F;2020&#x2F;02&#x2F;10&#x2F;session-getAttribute-%E5%80%BC%E8%8E%B7%E5%8F%96%E4%B8%BAnull&#x2F;1.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;buquemu.github.io&#x2F;2020&#x2F;02&#x2F;10&#x2F;session-getAttribute-%E5%80%BC%E8%8E%B7%E5%8F%96%E4%B8%BAnull&#x2F;2.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;buquemu.github.io&#x2F;2020&#x2F;02&#x2F;10&#x2F;session-getAttribute-%E5%80%BC%E8%8E%B7%E5%8F%96%E4%B8%BAnull&#x2F;3.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;buquemu.github.io&#x2F;2020&#x2F;02&#x2F;10&#x2F;session-getAttribute-%E5%80%BC%E8%8E%B7%E5%8F%96%E4%B8%BAnull&#x2F;4.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;buquemu.github.io&#x2F;2020&#x2F;02&#x2F;10&#x2F;session-getAttribute-%E5%80%BC%E8%8E%B7%E5%8F%96%E4%B8%BAnull&#x2F;5.png">
+<meta property="og:updated_time" content="2020-02-10T10:21:37.670Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;buquemu.github.io&#x2F;2020&#x2F;02&#x2F;10&#x2F;session-getAttribute-%E5%80%BC%E8%8E%B7%E5%8F%96%E4%B8%BAnull&#x2F;1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -150,61 +160,254 @@
           </div>
           <div id="js-content" class="content-ll">
             
-  
-  
+
+<article id="post-session-getAttribute-值获取为null" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/09/hello-world/" class="archive-article-date">
-  	<time datetime="2019-11-09T03:20:35.782Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-09</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/09/hello-world/">身高一米以上的小可爱才能点击进来</a>
+    <h1 class="article-title" itemprop="name">
+      session.getAttribute()值获取为null
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <!--显示阅读次数-->
+
+  <br/>
+  <a class="cloud-tie-join-count" href="javascript:void(0);" target="_blank" rel="noopener" style="color:gray;font-size:14px;">
+  <span class="icon-sort"></span>
+  <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+            阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+  </span>
+  </a>
+
+<!--显示阅读次数完毕-->
+
+        
+        <a href="/2020/02/10/session-getAttribute-%E5%80%BC%E8%8E%B7%E5%8F%96%E4%B8%BAnull/" class="archive-article-date">
+  	<time datetime="2020-02-10T10:00:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>还没有写前端页面，所以昨天用到了post man工具来向后端发送json格式的请求<br>这个问题卡了我一下午 终于解决了！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">request.getSession().getAttribute(&quot;githubuser&quot;); 为空一直取不到值</span><br></pre></td></tr></table></figure>
+<p><img src="/2020/02/10/session-getAttribute-%E5%80%BC%E8%8E%B7%E5%8F%96%E4%B8%BAnull/1.jpg" alt="3"><br>前面设置了，所以不存在Session没有set的情况<br><img src="/2020/02/10/session-getAttribute-%E5%80%BC%E8%8E%B7%E5%8F%96%E4%B8%BAnull/2.png" alt="3"><br>我另一个控制层中也有这个方法，这个方法获取session就正常<br><img src="/2020/02/10/session-getAttribute-%E5%80%BC%E8%8E%B7%E5%8F%96%E4%B8%BAnull/3.png" alt="3"></p>
+<h1 id="问题原因："><a href="#问题原因：" class="headerlink" title="问题原因："></a>问题原因：</h1><p>postman 是一个软件，那么他不能和浏览器共享 cookies<br>session就没办法同步</p>
+<a id="more"></a>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>页面的postman会自动获取你的cookie,App版的postman 你需要手动将cookie添加到头部发送过去<br><img src="/2020/02/10/session-getAttribute-%E5%80%BC%E8%8E%B7%E5%8F%96%E4%B8%BAnull/4.png" alt="3"><br>将cookie 添加进去<br><img src="/2020/02/10/session-getAttribute-%E5%80%BC%E8%8E%B7%E5%8F%96%E4%B8%BAnull/5.png" alt="3"></p>
+
+      
+      <!-- 增加版权声明 -->
+<!- 百度自动推送方式提交 -->
+
+  <script>
+  (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      }
+      else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+  })();
+  </script>
+
+<!- 百度自动推送方式提交结束 -->
+  
+
+  <div class="declare" hidden="hidden"></div>
+
+
+<!-- 增加版权声明结束 -->
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" target="_blank" rel="noopener" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>么么╰(￣ω￣ｏ)哒<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/1573281433159.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/pay.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">随笔</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">session</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">post man</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" target="_blank" rel="noopener" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" target="_blank" rel="noopener" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://buquemu.github.ioub.io/2020/02/10/session-getAttribute-%E5%80%BC%E8%8E%B7%E5%8F%96%E4%B8%BAnull/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2020/02/06/idea%E7%A0%B4%E8%A7%A3/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">idea破解</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#问题原因："><span class="toc-number">1.</span> <span class="toc-text">问题原因：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#解决方法"><span class="toc-number">1.1.</span> <span class="toc-text">解决方法</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
           </div>
         </div>
       </div>
@@ -228,9 +431,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
