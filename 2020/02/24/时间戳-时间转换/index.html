@@ -19,7 +19,7 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;buquemu.github.io&#x2F;2020&#x2F;02&#x2F;24&#x2F;%E6%97%B6%E9%97%B4%E6%88%B3-%E6%97%B6%E9%97%B4%E8%BD%AC%E6%8D%A2&#x2F;1.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;buquemu.github.io&#x2F;2020&#x2F;02&#x2F;24&#x2F;%E6%97%B6%E9%97%B4%E6%88%B3-%E6%97%B6%E9%97%B4%E8%BD%AC%E6%8D%A2&#x2F;2.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;buquemu.github.io&#x2F;2020&#x2F;02&#x2F;24&#x2F;%E6%97%B6%E9%97%B4%E6%88%B3-%E6%97%B6%E9%97%B4%E8%BD%AC%E6%8D%A2&#x2F;3.png">
-<meta property="og:updated_time" content="2020-02-24T10:00:02.619Z">
+<meta property="og:updated_time" content="2020-02-24T10:04:07.039Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;buquemu.github.io&#x2F;2020&#x2F;02&#x2F;24&#x2F;%E6%97%B6%E9%97%B4%E6%88%B3-%E6%97%B6%E9%97%B4%E8%BD%AC%E6%8D%A2&#x2F;1.png">
   
@@ -198,10 +198,7 @@
 <a id="more"></a>
 <h2 id="js-转换"><a href="#js-转换" class="headerlink" title="js 转换"></a>js 转换</h2><p>在从数据库读取数据显示在前提展示时，数据库中存储的date日期在前台显示为时间戳。为此，需要将时间戳转换为日期。通常用两种方法将时间戳转换为日期。</p>
 <ol>
-<li>函数<br> <img src="/2020/02/24/%E6%97%B6%E9%97%B4%E6%88%B3-%E6%97%B6%E9%97%B4%E8%BD%AC%E6%8D%A2/2.png" alt="3"><br>在js中时间戳为13位，通过一个js转换函数将时间戳转换为某种格式的日期。<br>使用此方法时，前台从后台获取到的是时间戳，要进行转换。<br>js 代码如下<br>``<br>function changeDate(datetimes){<pre><code>var date = new Date(datetimes);
-Y = date.getFullYear() + &apos;-&apos;;
-M = (date.getMonth()+1 &lt; 10 ? &apos;0&apos;+(date.getMonth()+1) : date.getMonth()+1) + &apos;-&apos;;
-D = date.getDate() + &apos; &apos;;</code></pre>//      h = date.getHours() + ‘:’;<br>//      m = date.getMinutes() + ‘:’;<br>//      s = date.getSeconds();<br>//      年 月 日 时 分 秒<pre><code>return Y+M+D;</code></pre> }<br>``</li>
+<li>函数<br> <img src="/2020/02/24/%E6%97%B6%E9%97%B4%E6%88%B3-%E6%97%B6%E9%97%B4%E8%BD%AC%E6%8D%A2/2.png" alt="3"><br>在js中时间戳为13位，通过一个js转换函数将时间戳转换为某种格式的日期。<br>使用此方法时，前台从后台获取到的是时间戳，要进行转换。<br>js 代码如下<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function changeDate(datetimes)&#123;</span><br><span class="line">        var date = new Date(datetimes);</span><br><span class="line">        Y = date.getFullYear() + &apos;-&apos;;</span><br><span class="line">        M = (date.getMonth()+1 &lt; 10 ? &apos;0&apos;+(date.getMonth()+1) : date.getMonth()+1) + &apos;-&apos;;</span><br><span class="line">        D = date.getDate() + &apos; &apos;;</span><br><span class="line">	  //  h = date.getHours() + &apos;:&apos;;</span><br><span class="line">	  //  m = date.getMinutes() + &apos;:&apos;;</span><br><span class="line">	  //  s = date.getSeconds(); </span><br><span class="line">	  //  年 月 日 时 分 秒</span><br><span class="line">        return Y+M+D;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></li>
 <li>注解<br>在实体类中加注解。  此方法，是前台获取数据库中日期数据获取到的直接就是日期，而不是时间戳，不需要再进行转化。<br><img src="/2020/02/24/%E6%97%B6%E9%97%B4%E6%88%B3-%E6%97%B6%E9%97%B4%E8%BD%AC%E6%8D%A2/3.png" alt="3"><br>保存到数据库是以日期的格式保存</li>
 </ol>
 
@@ -539,6 +536,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">idea破解</a>
               </li>
              
@@ -563,19 +564,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">thymeleaf</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">h2用户密码错误</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">session</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">post man</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">thymeleaf</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">h2用户密码错误</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -596,10 +597,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">idea热部署</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">随笔</a>
               </li>
             
             <div class="clearfix"></div>
