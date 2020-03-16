@@ -8,13 +8,18 @@
   <link rel="dns-prefetch" href="https://buquemu.github.io">
   <title>Markdown编辑器editormd使用过程中的坑 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
+  <meta name="description" content="本来以为添加一个文本编辑器挺容易，结果又废了半天劲editor.md是国内开源的一款在线Markdown编辑器，可嵌入的 Markdown 在线编辑器（组件），基于 CodeMirror、jQuery 和 Marked 构建。网站地址:http:&#x2F;&#x2F;editor.md.ipandao.com&#x2F;GitHub:https:&#x2F;&#x2F;github.com&#x2F;pandao&#x2F;editor.md我不确定导入哪些包 就">
+<meta name="keywords" content="Editor.md">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Markdown编辑器editormd使用过程中的坑">
 <meta property="og:url" content="https:&#x2F;&#x2F;buquemu.github.io&#x2F;2020&#x2F;03&#x2F;16&#x2F;Markdown%E7%BC%96%E8%BE%91%E5%99%A8editormd%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84%E5%9D%91&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="本来以为添加一个文本编辑器挺容易，结果又废了半天劲editor.md是国内开源的一款在线Markdown编辑器，可嵌入的 Markdown 在线编辑器（组件），基于 CodeMirror、jQuery 和 Marked 构建。网站地址:http:&#x2F;&#x2F;editor.md.ipandao.com&#x2F;GitHub:https:&#x2F;&#x2F;github.com&#x2F;pandao&#x2F;editor.md我不确定导入哪些包 就">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-03-16T14:12:17.534Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;buquemu.github.io&#x2F;2020&#x2F;03&#x2F;16&#x2F;Markdown%E7%BC%96%E8%BE%91%E5%99%A8editormd%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84%E5%9D%91&#x2F;1.png">
+<meta property="og:updated_time" content="2020-03-16T14:41:59.354Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;buquemu.github.io&#x2F;2020&#x2F;03&#x2F;16&#x2F;Markdown%E7%BC%96%E8%BE%91%E5%99%A8editormd%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84%E5%9D%91&#x2F;1.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -185,7 +190,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>本来以为添加一个文本编辑器挺容易，结果又废了半天劲<br>editor.md是国内开源的一款在线Markdown编辑器，可嵌入的 Markdown 在线编辑器（组件），基于 CodeMirror、jQuery 和 Marked 构建。<br>网站地址:<a href="http://editor.md.ipandao.com/" target="_blank" rel="noopener">http://editor.md.ipandao.com/</a><br>GitHub:<a href="https://github.com/pandao/editor.md" target="_blank" rel="noopener">https://github.com/pandao/editor.md</a><br>我不确定导入哪些包 就需要根据下方用法导入使用到的css、js、lib文件 学会看页面的报错信息发现有的样式没展示再根据页面报错信息导入 font 和 images<br><img src="/2020/03/16/Markdown%E7%BC%96%E8%BE%91%E5%99%A8editormd%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84%E5%9D%91/1.png" alt="3"></p>
+<a id="more"></a>
+<p>将缺少的包导入。</p>
+<h2 id="使用-也可以理解为存储"><a href="#使用-也可以理解为存储" class="headerlink" title="使用  也可以理解为存储"></a>使用  也可以理解为存储</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;editormd/css/editormd.css&quot; /&gt;</span><br><span class="line">&lt;div id=&quot;test-editor&quot;&gt;</span><br><span class="line">    &lt;textarea style=&quot;display:none;&quot;&gt;### 关于 Editor.md</span><br><span class="line"></span><br><span class="line">**Editor.md** 是一款开源的、可嵌入的 Markdown 在线编辑器（组件），基于 CodeMirror、jQuery 和 Marked 构建。</span><br><span class="line">    &lt;/textarea&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script src=&quot;https://cdn.bootcss.com/jquery/1.11.3/jquery.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=&quot;editormd/editormd.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    $(function() &#123;</span><br><span class="line">        var editor = editormd(&quot;test-editor&quot;, &#123;</span><br><span class="line">            // width  : &quot;100%&quot;,</span><br><span class="line">            // height : &quot;100%&quot;,</span><br><span class="line">            path   : &quot;editormd/lib/&quot;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="展示-将MarkDown-转化为Html"><a href="#展示-将MarkDown-转化为Html" class="headerlink" title="展示  将MarkDown 转化为Html"></a>展示  将MarkDown 转化为Html</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;editormd/css/editormd.preview.css&quot; /&gt;</span><br><span class="line">&lt;div id=&quot;test-markdown-view&quot;&gt;</span><br><span class="line">    &lt;!-- Server-side output Markdown text --&gt;</span><br><span class="line">    &lt;textarea style=&quot;display:none;&quot;&gt;### Hello world!&lt;/textarea&gt;             </span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script src=&quot;jquery.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=&quot;editormd/editormd.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=&quot;editormd/lib/marked.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=&quot;editormd/lib/prettify.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    $(function() &#123;</span><br><span class="line">	    var testView = editormd.markdownToHTML(&quot;test-markdown-view&quot;, &#123;</span><br><span class="line">            // markdown : &quot;[TOC]\n### Hello world!\n## Heading 2&quot;, // Also, you can dynamic set Markdown text</span><br><span class="line">            // htmlDecode : true,  // Enable / disable HTML tag encode.</span><br><span class="line">            // htmlDecode : &quot;style,script,iframe&quot;,  // Note: If enabled, you should filter some dangerous HTML tags for website security.</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
       
       <!-- 增加版权声明 -->
 <!- 百度自动推送方式提交 -->
@@ -249,6 +259,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">Editor.md</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -342,7 +363,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#使用-也可以理解为存储"><span class="toc-number">1.</span> <span class="toc-text">使用  也可以理解为存储</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#展示-将MarkDown-转化为Html"><span class="toc-number">2.</span> <span class="toc-text">展示  将MarkDown 转化为Html</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -472,6 +493,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">Editor.md</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">generator</a>
               </li>
              
@@ -504,19 +529,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">槽道</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">阿里云主机</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">rabbitmq</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">槽道</a>
               </li>
              
               <li class="article-tag-list-item">
