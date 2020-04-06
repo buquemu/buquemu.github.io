@@ -151,6 +151,121 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-阿里云es安装中的问题我差不多全遇到了" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/03/%E9%98%BF%E9%87%8C%E4%BA%91es%E5%AE%89%E8%A3%85%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98%E6%88%91%E5%B7%AE%E4%B8%8D%E5%A4%9A%E5%85%A8%E9%81%87%E5%88%B0%E4%BA%86/">阿里云es安装中的问题我差不多全遇到了</a>
+    </h1>
+  
+
+        
+        <!--显示阅读次数-->
+
+<!--显示阅读次数完毕-->
+
+        
+        <a href="/2020/04/03/%E9%98%BF%E9%87%8C%E4%BA%91es%E5%AE%89%E8%A3%85%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98%E6%88%91%E5%B7%AE%E4%B8%8D%E5%A4%9A%E5%85%A8%E9%81%87%E5%88%B0%E4%BA%86/" class="archive-article-date">
+  	<time datetime="2020-04-03T09:34:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>用时12个小时终于弄好了es，总结一下 加粗的都是我遇到的问题</p>
+<ol>
+<li>下载JDK 1.8以上以上 配置环境变量<br><a href="https://www.oracle.com/java/technologies/javase-jdk8-downloads.html" target="_blank" rel="noopener">https://www.oracle.com/java/technologies/javase-jdk8-downloads.html</a><br>你需要有个Oracle账户 邮箱申请 5分钟左右就可以<br>下载对应Linux JDK 安装包  通过rz 命令上传到指定文件目录（推荐使用这个方便配置环境变量 也可以通过yum -y list java*) 在通过 tar -xvf 解压<br>没有rz 命令 执行 yum install lrzsz</li>
+<li>配置环境变量<br>vim /etc/profile<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=/home/software/jdk1.8.0_241</span><br><span class="line">export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar</span><br><span class="line">export PATH=$PATH:$JAVA_HOME/bin</span><br></pre></td></tr></table></figure>
+wq保存退出以后使用命令更新配置<br>source /etc/profile</li>
+<li>下载es<br>wget <a href="https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.5.2.zip" target="_blank" rel="noopener">https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.5.2.zip</a><br>你也可以用更高版本的es但注意es对应jdk最低版本问题</li>
+<li>不能root用户启动es 创建用户用户组<br>useradd XX   su 切换到XX 高权限向地权限不用输密码 地权限向高权限需要输入账户密码（密码输入是不显示）</li>
+<li>给创建的用户赋权 chown es:es -R XXXXX（es文件）</li>
+<li>切换到es用户 到elasticsearch bin下 注意是<strong>./elasticsearch</strong>启动 直接在bin下elas.. 会显示找不到该命令 这个和本地服务器还是有区别的 百度了一大堆都没找到原因<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash:elasticserach:command not found</span><br></pre></td></tr></table></figure></li>
+<li>配置config 下的elasticsearch.yum 网上一大堆 这里注意的是<strong>network.host是阿里云服务器的内网</strong><br>外网会启动报错<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">启动报错：Failed to bind to [9300-9400]...Cannot assign requested address</span><br></pre></td></tr></table></figure></li></ol>
+        
+          <a class="article-more-a" href="/2020/04/03/%E9%98%BF%E9%87%8C%E4%BA%91es%E5%AE%89%E8%A3%85%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98%E6%88%91%E5%B7%AE%E4%B8%8D%E5%A4%9A%E5%85%A8%E9%81%87%E5%88%B0%E4%BA%86/#more">more >></a>
+        
+      
+      <!-- 增加版权声明 -->
+<!- 百度自动推送方式提交 -->
+
+  <script>
+  (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      }
+      else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+  })();
+  </script>
+
+<!- 百度自动推送方式提交结束 -->
+  
+
+  <div class="declare" hidden="hidden"></div>
+
+
+<!-- 增加版权声明结束 -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">es</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/03/%E9%98%BF%E9%87%8C%E4%BA%91es%E5%AE%89%E8%A3%85%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98%E6%88%91%E5%B7%AE%E4%B8%8D%E5%A4%9A%E5%85%A8%E9%81%87%E5%88%B0%E4%BA%86/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-spring-boot使用editor-md将图片保存在阿里云OSS-；" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1106,115 +1221,6 @@
 
 
   
-    <article id="post-热部署" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/01/17/%E7%83%AD%E9%83%A8%E7%BD%B2/">热部署</a>
-    </h1>
-  
-
-        
-        <!--显示阅读次数-->
-
-<!--显示阅读次数完毕-->
-
-        
-        <a href="/2020/01/17/%E7%83%AD%E9%83%A8%E7%BD%B2/" class="archive-article-date">
-  	<time datetime="2020-01-17T07:11:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Spring-Boot-Developer-Tools"><a href="#Spring-Boot-Developer-Tools" class="headerlink" title="Spring Boot Developer Tools"></a>Spring Boot Developer Tools</h3><p>JReble 也是热部署插件但收费<br>Spring Boot Developer Tools 相当于有两个class loaded，一个去加载不会变化的类，经常变化的类用一个新的classloaded，当项目启动的时候呢，新的把老的替换掉（本质上还是会重启项目）<br>JReable是吧每一个类变化的字节码做一个替换。</p>
-<ol>
-<li><strong>配置maven</strong>     <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">	&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">	&lt;artifactId&gt;spring-boot-devtools&lt;/artifactId&gt;</span><br><span class="line">	&lt;version&gt;2.0.4.RELEASE&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure></li>
-<li><strong>为了不每次都bulid project</strong> 设置自动<br><img src="/2020/01/17/%E7%83%AD%E9%83%A8%E7%BD%B2/1.png" alt="1"><br>只有在没有运行和debug的时候才能去做这件事情<br>所以 需要把运行中bulid打开<br><img src="/2020/01/17/%E7%83%AD%E9%83%A8%E7%BD%B2/3.png" alt="1"></li>
-<li><strong>按住 shift+ctrl+alt+？</strong><br>点击registry<br><img src="/2020/01/17/%E7%83%AD%E9%83%A8%E7%BD%B2/2.png" alt="1"><br>找到这个打对勾</li>
-</ol>
-
-      
-      <!-- 增加版权声明 -->
-<!- 百度自动推送方式提交 -->
-
-  <script>
-  (function(){
-      var bp = document.createElement('script');
-      var curProtocol = window.location.protocol.split(':')[0];
-      if (curProtocol === 'https') {
-          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-      }
-      else {
-          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-      }
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(bp, s);
-  })();
-  </script>
-
-<!- 百度自动推送方式提交结束 -->
-  
-
-  <div class="declare" hidden="hidden"></div>
-
-
-<!-- 增加版权声明结束 -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">idea热部署</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/01/17/%E7%83%AD%E9%83%A8%E7%BD%B2/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1328,11 +1334,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">github登录</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">idea破解</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">github登录</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1344,19 +1350,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">idea破解</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">lombok</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">阿里云主机</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">rabbitmq</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1365,6 +1363,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">槽道</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">阿里云主机</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">rabbitmq</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1384,19 +1390,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">session</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">post man</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">MyBatis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">时间复杂度</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1408,11 +1402,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">idea热部署</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">时间复杂度</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">Date Formate</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">idea热部署</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">session</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">post man</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">es</a>
               </li>
             
             <div class="clearfix"></div>
