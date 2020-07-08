@@ -6,14 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://buquemu.github.io">
-  <title>Archives: 2020 | Hexo</title>
+  <title>sql语句行转列 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="https:&#x2F;&#x2F;buquemu.github.io&#x2F;archives&#x2F;2020&#x2F;index.html">
+  <meta name="description" content="面试当中问到的有关sql语句行转列问题有两个表，学习表：姓名，学生id成绩表：课程名称、成绩、学生id 结果要求的是姓名，课程1，课程2，课程3王**，  60，  50，  70">
+<meta name="keywords" content="sql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sql语句行转列">
+<meta property="og:url" content="https:&#x2F;&#x2F;buquemu.github.io&#x2F;2020&#x2F;07&#x2F;08&#x2F;sql%E8%AF%AD%E5%8F%A5%E8%A1%8C%E8%BD%AC%E5%88%97%E9%9D%A2%E8%AF%95%E9%A2%98&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="面试当中问到的有关sql语句行转列问题有两个表，学习表：姓名，学生id成绩表：课程名称、成绩、学生id 结果要求的是姓名，课程1，课程2，课程3王**，  60，  50，  70">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https:&#x2F;&#x2F;buquemu.github.io&#x2F;2020&#x2F;07&#x2F;08&#x2F;sql%E8%AF%AD%E5%8F%A5%E8%A1%8C%E8%BD%AC%E5%88%97%E9%9D%A2%E8%AF%95%E9%A2%98&#x2F;1.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;buquemu.github.io&#x2F;2020&#x2F;07&#x2F;08&#x2F;sql%E8%AF%AD%E5%8F%A5%E8%A1%8C%E8%BD%AC%E5%88%97%E9%9D%A2%E8%AF%95%E9%A2%98&#x2F;2.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;buquemu.github.io&#x2F;2020&#x2F;07&#x2F;08&#x2F;sql%E8%AF%AD%E5%8F%A5%E8%A1%8C%E8%BD%AC%E5%88%97%E9%9D%A2%E8%AF%95%E9%A2%98&#x2F;3.png">
+<meta property="og:updated_time" content="2020-07-08T15:06:56.331Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;buquemu.github.io&#x2F;2020&#x2F;07&#x2F;08&#x2F;sql%E8%AF%AD%E5%8F%A5%E8%A1%8C%E8%BD%AC%E5%88%97%E9%9D%A2%E8%AF%95%E9%A2%98&#x2F;1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -150,35 +158,116 @@
           </div>
           <div id="js-content" class="content-ll">
             
-  
-  
+
+<article id="post-sql语句行转列面试题" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/08/sql%E8%AF%AD%E5%8F%A5%E8%A1%8C%E8%BD%AC%E5%88%97%E9%9D%A2%E8%AF%95%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2020-07-08T14:22:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-08</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/08/sql%E8%AF%AD%E5%8F%A5%E8%A1%8C%E8%BD%AC%E5%88%97%E9%9D%A2%E8%AF%95%E9%A2%98/">sql语句行转列</a>
+    <h1 class="article-title" itemprop="name">
+      sql语句行转列
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <!--显示阅读次数-->
+
+  <br/>
+  <a class="cloud-tie-join-count" href="javascript:void(0);" target="_blank" rel="noopener" style="color:gray;font-size:14px;">
+  <span class="icon-sort"></span>
+  <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+            阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+  </span>
+  </a>
+
+<!--显示阅读次数完毕-->
+
+        
+        <a href="/2020/07/08/sql%E8%AF%AD%E5%8F%A5%E8%A1%8C%E8%BD%AC%E5%88%97%E9%9D%A2%E8%AF%95%E9%A2%98/" class="archive-article-date">
+  	<time datetime="2020-07-08T14:22:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>面试当中问到的有关sql语句行转列问题<br>有两个表，学习表：姓名，学生id<br>成绩表：课程名称、成绩、学生id</p>
+<p>结果要求的是<br>姓名，课程1，课程2，课程3<br>王**，  60，  50，  70</p>
+<a id="more"></a>
+<p>先说正确答案，再来总结问题</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">select name,</span><br><span class="line">max(case ClassName</span><br><span class="line">when &apos;java&apos; then score </span><br><span class="line">else 0</span><br><span class="line">end)</span><br><span class="line">as &apos;课程一&apos;,</span><br><span class="line">max(case ClassName</span><br><span class="line">when &apos;mysql&apos; then score</span><br><span class="line">else 0</span><br><span class="line">end)     </span><br><span class="line">as &apos;课程二&apos; ,</span><br><span class="line">max(case ClassName</span><br><span class="line">when &apos;english&apos; then score</span><br><span class="line">else 0</span><br><span class="line">end )   </span><br><span class="line">as &apos;课程三&apos; </span><br><span class="line">from </span><br><span class="line">(select name,ClassName,score from student s inner join score g on s.id=g.id)a GROUP BY NAME;</span><br></pre></td></tr></table></figure>
+<p><img src="/2020/07/08/sql%E8%AF%AD%E5%8F%A5%E8%A1%8C%E8%BD%AC%E5%88%97%E9%9D%A2%E8%AF%95%E9%A2%98/1.jpg" alt="3"></p>
+<h2 id="问题一："><a href="#问题一：" class="headerlink" title="问题一："></a>问题一：</h2><p>将两表合并为一个表</p>
+<p>from (select * from student s inner join score g on s.id=g.id)a GROUP BY NAME;<br>如果是<em>而不是给定字段 则会出现id重复 因为两张表是通过id进行关联的，两个表都有id字段<br>错误信息为：<br>*</em>[Err] 1060 - Duplicate column name ‘id’**</p>
+<h2 id="问题二："><a href="#问题二：" class="headerlink" title="问题二："></a>问题二：</h2><p>如果不进行分组则会出现，如下情况</p>
+<p><img src="/2020/07/08/sql%E8%AF%AD%E5%8F%A5%E8%A1%8C%E8%BD%AC%E5%88%97%E9%9D%A2%E8%AF%95%E9%A2%98/2.png" alt="3"></p>
+<h2 id="问题三："><a href="#问题三：" class="headerlink" title="问题三："></a>问题三：</h2><p>按姓名对内容进行分组后，不设置max最大值则会出现</p>
+<p><img src="/2020/07/08/sql%E8%AF%AD%E5%8F%A5%E8%A1%8C%E8%BD%AC%E5%88%97%E9%9D%A2%E8%AF%95%E9%A2%98/3.png" alt="3"><br>三个条件缺一不可</p>
+
+      
+      <!-- 增加版权声明 -->
+<!- 百度自动推送方式提交 -->
+
+  <script>
+  (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      }
+      else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+  })();
+  </script>
+
+<!- 百度自动推送方式提交结束 -->
+  
+
+  <div class="declare" hidden="hidden"></div>
+
+
+<!-- 增加版权声明结束 -->
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" target="_blank" rel="noopener" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>么么╰(￣ω￣ｏ)哒<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/1573281433159.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/pay.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -190,357 +279,135 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" target="_blank" rel="noopener" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" target="_blank" rel="noopener" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://buquemu.github.ioub.io/2020/07/08/sql%E8%AF%AD%E5%8F%A5%E8%A1%8C%E8%BD%AC%E5%88%97%E9%9D%A2%E8%AF%95%E9%A2%98/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/16/Redis-is-configured-to-save-RDB/" class="archive-article-date">
-  	<time datetime="2020-06-16T14:32:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-16</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/06/16/Redis-is-configured-to-save-RDB/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Redis is configured to save RDB</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/16/Redis-is-configured-to-save-RDB/">Redis is configured to save RDB</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color1">redis</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">阿里云</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#问题一："><span class="toc-number">1.</span> <span class="toc-text">问题一：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#问题二："><span class="toc-number">2.</span> <span class="toc-text">问题二：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#问题三："><span class="toc-number">3.</span> <span class="toc-text">问题三：</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/03/%E9%98%BF%E9%87%8C%E4%BA%91es%E5%AE%89%E8%A3%85%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98%E6%88%91%E5%B7%AE%E4%B8%8D%E5%A4%9A%E5%85%A8%E9%81%87%E5%88%B0%E4%BA%86/" class="archive-article-date">
-  	<time datetime="2020-04-03T09:34:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-03</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/03/%E9%98%BF%E9%87%8C%E4%BA%91es%E5%AE%89%E8%A3%85%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98%E6%88%91%E5%B7%AE%E4%B8%8D%E5%A4%9A%E5%85%A8%E9%81%87%E5%88%B0%E4%BA%86/">阿里云es安装中的问题我差不多全遇到了</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">es</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/18/spring-boot%E4%BD%BF%E7%94%A8editor-md%E5%B0%86%E5%9B%BE%E7%89%87%E4%BF%9D%E5%AD%98%E5%9C%A8%E9%98%BF%E9%87%8C%E4%BA%91OSS-%EF%BC%9B/" class="archive-article-date">
-  	<time datetime="2020-03-18T06:11:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/18/spring-boot%E4%BD%BF%E7%94%A8editor-md%E5%B0%86%E5%9B%BE%E7%89%87%E4%BF%9D%E5%AD%98%E5%9C%A8%E9%98%BF%E9%87%8C%E4%BA%91OSS-%EF%BC%9B/">spring boot使用editor.md将图片保存在阿里云OSS ；</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">对象存储OSS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">editor.md</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/16/Markdown%E7%BC%96%E8%BE%91%E5%99%A8editormd%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84%E5%9D%91/" class="archive-article-date">
-  	<time datetime="2020-03-16T14:12:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/16/Markdown%E7%BC%96%E8%BE%91%E5%99%A8editormd%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84%E5%9D%91/">Markdown编辑器editormd使用过程中的坑</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">Editor.md</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/10/updateByExampleSelective/" class="archive-article-date">
-  	<time datetime="2020-03-10T14:19:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/10/updateByExampleSelective/">updateByExampleSelective</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">MyBatis</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/24/%E6%97%B6%E9%97%B4%E6%88%B3-%E6%97%B6%E9%97%B4%E8%BD%AC%E6%8D%A2/" class="archive-article-date">
-  	<time datetime="2020-02-24T09:42:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/24/%E6%97%B6%E9%97%B4%E6%88%B3-%E6%97%B6%E9%97%B4%E8%BD%AC%E6%8D%A2/">时间戳 时间转换</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">Date Formate</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/15/List%E9%9B%86%E5%90%88add%E6%96%B9%E6%B3%95%E8%A6%86%E7%9B%96%E5%8E%9F%E6%9D%A5%E5%86%85%E5%AE%B9/" class="archive-article-date">
-  	<time datetime="2020-02-15T08:17:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/15/List%E9%9B%86%E5%90%88add%E6%96%B9%E6%B3%95%E8%A6%86%E7%9B%96%E5%8E%9F%E6%9D%A5%E5%86%85%E5%AE%B9/">List集合add方法覆盖原来内容</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/13/error%E8%87%AA%E5%AE%9A%E4%B9%89%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/" class="archive-article-date">
-  	<time datetime="2020-02-13T07:42:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/13/error%E8%87%AA%E5%AE%9A%E4%B9%89%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/">error自定义异常处理</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/10/session-getAttribute-%E5%80%BC%E8%8E%B7%E5%8F%96%E4%B8%BAnull/" class="archive-article-date">
-  	<time datetime="2020-02-10T10:00:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/10/session-getAttribute-%E5%80%BC%E8%8E%B7%E5%8F%96%E4%B8%BAnull/">session.getAttribute()值获取为null</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">session</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">post man</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2020/page/2/">2</a><a class="extend next" rel="next" href="/archives/2020/page/2/">Next &amp;raquo;</a>
-    </nav>
   
 
 
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
           </div>
         </div>
       </div>
@@ -564,8 +431,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
